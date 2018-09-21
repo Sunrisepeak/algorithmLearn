@@ -13,7 +13,7 @@ class Clinder{
 	}
 	//计算体积
 	public double Volume(){
-		return 3.1459*r*r*h;
+		return 3.14159*r*r*h;
 	}
 }
 //测试类
