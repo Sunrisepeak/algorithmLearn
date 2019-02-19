@@ -10,6 +10,8 @@ USTCoj：http://acm.ustc.edu.cn/ustcoj/
 
 洛谷oj：https://www.luogu.org/
 
+PTA：https://pintia.cn/problem-sets
+
 learningNote：
 	
 	1.求最大公约数的几种算法：

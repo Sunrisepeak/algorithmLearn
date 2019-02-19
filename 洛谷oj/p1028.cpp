@@ -1,4 +1,5 @@
-﻿#include<iostream>
+﻿/*-----------------递推优化-----------*/
+#include<iostream>
 int f[501], n;
 int main(){
 	f[0] = 1;
@@ -9,7 +10,7 @@ int main(){
 	return 0;
 }
 
-/*
+/*--------------正常递推
 int f[1001];
 int main()
 {
@@ -46,6 +47,37 @@ int main()
 //	std::cout << f(n) + 1 << std::endl;
 	f(n);
 	std::cout << flag << std::endl;
+	return 0;
+}
+*/
+/*---------记忆搜索------------*/
+/*
+#include<iostream>
+#include<cstring>
+using namespace std;
+int a[1001];
+int dfs(int n)
+{
+	if(a[n] != -1)
+		return a[n];
+	else
+	{
+		int s = 0;
+		for(int i = 1; i <= n/2; i++)
+		{
+			if(a[i] == -1)
+				a[i] = dfs(i);
+			s += (a[i] + 1);
+//			cout << i <<":"<< a[i] <<"-------this\n";
+		}
+//		cout << "s:" << s<<endl;
+		return s;
+	}	
+}
+int main()
+{
+	memset(a, -1, sizeof(a));
+	cout << dfs(100)+1;
 	return 0;
 }
 */
