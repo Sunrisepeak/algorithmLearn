@@ -16,7 +16,7 @@ bool Isprime_method2(int n)
     return true;
 }
 //by stackoverflow
-int is_prime(long num)
+bool is_prime(int num)
 {
     int k = 1, a = 0, b = 0;
     long sr;
@@ -52,7 +52,7 @@ void ptime(clock_t begin, clock_t end)
 int prime_count(int n, bool f(int n))
 {
     int ans = 0;
-    for(int i = 1; i <= n; i++)
+    for(int i = 2; i <= n; i++)
         if(f(i))
             ans++;
     return ans;
@@ -71,6 +71,12 @@ int main()
     begin = clock();
     std::cout << "2.The number of prime Number is " 
               << prime_count(n,Isprime_method2)
+              << std::endl;
+    end = clock();
+    ptime(begin, end);
+    begin = clock();
+    std::cout << "3.The number of prime Number is " 
+              << prime_count(n, is_prime)
               << std::endl;
     end = clock();
     ptime(begin, end);
