@@ -46,7 +46,7 @@ ElementType Median( ElementType A[], int N )
         left++;
       }
 //	  ElementType key = A[left];   //once again declation key lead to put error,
-							   //because of above key haven't use the value of key variable.
+							       //because of above key haven't use the value of key variable.
 	  key = A[left];		// this is change value above declation key.
 //	  printf("-----l:%d  r:%d key: %f\n", left, right, key);
     }
