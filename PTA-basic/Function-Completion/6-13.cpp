@@ -42,7 +42,7 @@ int  Search_Bin(SSTable T, KeyType k)
   {
     mid = (left + right) / 2;
 //    cout << mid << endl;	//this is debug!
-	if(T.R[mid].key > k)
+    if(T.R[mid].key > k)
       right = mid;
     else if(T.R[mid].key == k)
     {
