@@ -1,6 +1,6 @@
 #include<cstdio>
 #include<malloc.h>
-#include"stack_s.h"
+#include"list_s.h"
 void CreateList(SqList * &L, ElemType a[], int n)
 {
     L = (SqList *)malloc(sizeof(SqList));

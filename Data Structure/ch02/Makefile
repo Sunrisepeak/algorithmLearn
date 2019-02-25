@@ -1,25 +1,25 @@
-#this is a test Makefile and stack_code of sample
+#this is a test Makefile and list_code of sample
 #note must use to tab rather then space
 #								---SPeak 2019.2.25
 CC = g++                            #complier
-SRCS = stack_s.cpp stack_tst.cpp   #source file
-OBJ = $(SRCS:.cpp = .o)             #object file
+SRCS = list_s.cpp list_tst.cpp   #source file
+OBJ = $(SRCS:.cpp=.o)             #object file
 CFLAGS = -Wall                      #paramater
 CFLAGS += -O2
 LFLAGS = -lm                    #extract lib_link
-EXEC = stack_makefile_test      #program name
+EXEC = list_makefile_test      #program name
 
 
 all:$(OBJ)
 	$(CC) $(CFLAGS) $(SRCS) -o $(EXEC) $(LFLAGS)
 
-stack_s.o: stack_s.cpp stack_s.h
-	$(CC) -c stack_s.cpp
+list_s.o: list_s.cpp list_s.h
+	$(CC) -c list_s.cpp
 
-stack_test.o: stack_tst.cpp stack_s.cpp stack_s.h
-	$(CC) -c stack_tst.cpp 
+list_test.o: list_tst.cpp list_s.cpp list_s.h
+	$(CC) -c list_tst.cpp 
 
 clean:
 	rm -f $(OBJ)
-	rm -f stack_makefile_test
+	rm -f list_makefile_test
 

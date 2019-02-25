@@ -1,5 +1,5 @@
 #include<cstdio>
-#include"stack_s.h"
+#include"list_s.h"
 int main()
 {
     SqList *L;
