@@ -1,5 +1,5 @@
-#ifndef STACK_S_H
-#define STACK_S_H
+#ifndef LIST_S_H
+#define LIST_S_H
 typedef int ElemType;
 const int MaxSize = 50;
 typedef struct
@@ -16,7 +16,7 @@ void DestoryList(SqList * &L);
 
 bool ListEmpty(SqList * &L);
 
-int ListLength(SqList * &L);
+int ListLength(SqList * L);
 
 void DispList(SqList * L);
 
@@ -24,7 +24,7 @@ bool GetElem(SqList * L, int i, ElemType &e);
 
 int LocateElem(SqList * L, ElemType e);
 
-bool ListInsert(SqList * &L, int i, ElemType &e);
+bool ListInsert(SqList * &L, int i, ElemType e);
 
 bool ListDelete(SqList * &L, int i, ElemType &e);
 #endif
