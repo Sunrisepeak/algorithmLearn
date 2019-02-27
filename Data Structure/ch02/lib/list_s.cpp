@@ -43,6 +43,7 @@ bool GetElem(SqList * L, int i, ElemType &e)
 	e = L->data[i - 1];
 	return true;
 }
+
 int LocateElem(SqList * L, ElemType e)
 {
 	for(int i = 0; i < L->length; i++)
@@ -50,6 +51,7 @@ int LocateElem(SqList * L, ElemType e)
 			return i + 1;
 	return 0;
 }
+
 bool ListInsert(SqList * &L, int i, ElemType e)
 {
 	if(L->length + 1 > MaxSize || i > L->length || i < 1)
@@ -60,6 +62,7 @@ bool ListInsert(SqList * &L, int i, ElemType e)
 	L->length++;
 	return true;
 }
+
 bool ListDelete(SqList * &L, int i, ElemType &e)
 {
 	if(i < 1 || i > L->length)

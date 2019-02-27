@@ -2,24 +2,35 @@
 #note must use to tab rather then space
 #								---SPeak 2019.2.25
 CC = g++                            #complier
-SRCS = list_s.cpp list_tst.cpp   #source file
-OBJ = $(SRCS:.cpp=.o)             #object file
+#SRCS = list_s.cpp list_tst.cpp   #source file
+SRCS = $(wildcard ./src/list*.cpp) $(wildcard ./lib/*.cpp) #use function about wildcard get cpp
+
+#OBJS = $(SRCS:.cpp=.o)             #object file
+OBJS = $(patsubst %.cpp, %.o,$(SRCS))
+
 CFLAGS = -Wall                      #paramater
 CFLAGS += -O2
-LFLAGS = -lm                    #extract lib_link
-EXEC = list_makefile_test      #program name
+LFLAGS = -lm                    	#extract lib_link
+EXEC = list_makefile_test      		#program name
 
+#****add paths of include files
+INC = -I./include
 
-all:$(OBJ)
-	$(CC) $(CFLAGS) $(SRCS) -o $(EXEC) $(LFLAGS)
+#****add paths of lib files
+LIBS = ./lib/list*.cpp
 
-list_s.o: list_s.cpp list_s.h
-	$(CC) -c list_s.cpp
+all:$(OBJS)
+	$(CC) $(CFLAGS) $(OBJS)  -o $(EXEC) $(LFLAGS)
 
-list_test.o: list_tst.cpp list_s.cpp list_s.h
-	$(CC) -c list_tst.cpp 
+$(OBJS): %.o:%.cpp 				 #to use '.cpp' replace '.c' in OBJS variable
+	$(CC) -c  $(INC) $^ -o $@
 
+.PHONY:clean
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJS)
 	rm -f list_makefile_test
 
+#**********************Explanation******************
+# $^ : total rely on file	
+# $< : first rely on file
+# $@ : object file corresponding with src_file 
