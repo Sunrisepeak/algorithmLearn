@@ -73,3 +73,43 @@ bool ListDelete(SqList * &L, int i, ElemType &e)
 	L->length--;
 	return true;
 }
+
+/*----------------------code about example 2-*(chapter2)------------------------*/
+////example2-3
+//ans1
+void deletenode1(SqList * &L, ElemType x)
+{
+	int newlength = 0;
+	for(int i = 0; i < L->length; i++)
+		if(L->data[i] != x)
+			L->data[newlength++] = L->data[i];
+	L->length = newlength;
+}
+
+//ans2
+void deletenode2(SqList * &L, ElemType x)
+{
+	int k = 0, i = 0; 			// (k)Statistics is equal to value of 'x'
+	while(i < L->length)
+	{
+		if(L->data[i] == x)
+			k++;
+		else
+			L->data[i - k] = L->data[i];
+		i++;
+	}
+	L->length -= k;
+}
+
+//my ans_3
+//swap_times is based on number of x's
+void deletenode3(SqList * &L, ElemType x)
+{
+	for(int i = 0; i < L->length; i++)
+		if(L->data[i] == x)
+		{
+			while(L->data[L->length - 1] == x)
+				L->length--;
+			L->data[i] = L->data[--(L->length)];
+		}
+}

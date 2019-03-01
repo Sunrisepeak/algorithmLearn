@@ -27,4 +27,12 @@ int LocateElem(SqList * L, ElemType e);
 bool ListInsert(SqList * &L, int i, ElemType e);
 
 bool ListDelete(SqList * &L, int i, ElemType &e);
+
+/*-------------------example about chapter2----------------*/
+
+void deletenode1(SqList * &L, ElemType x);
+
+void deletenode2(SqList * &L, ElemType x);
+
+void deletenode3(SqList * &L, ElemType x);
 #endif
